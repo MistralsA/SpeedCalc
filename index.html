@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Speed Calculator</title>
+        <script src="calculations.js"></script>
+        <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;display:inline}
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-baqh{text-align:center;vertical-align:top}
+        .tg .tg-0lax{text-align:left;vertical-align:top}
+        .answer {color: blue;}
+        .unit {background-color: lightgreen;}
+        .opponent {background-color: lightcoral;}
+        input[type=number] {width: 40px;}
+        input[type=text] {width: 70px;}
+        input:read-only {background-color: #f1f1f1; font-weight: bold;}
+        #buttons {display:inline-grid}
+        </style>
+    </head>
+    <body onload="window.main()">
+        <div>
+            <table class="tg">
+                <thead>
+                <tr>
+                    <th class="tg-baqh" colspan="3">Yours</th>
+                    <th class="tg-baqh" colspan="3">Theirs</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="tg-baqh">Unit</td>
+                    <td class="tg-baqh">Speed</td>
+                    <td class="tg-baqh">CR</td>
+                    <td class="tg-baqh">Unit</td>
+                    <td class="tg-baqh">Speed</td>
+                    <td class="tg-baqh">CR</td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh"><input type="text" id="u1-name"></input></td>
+                    <td class="tg-baqh"><input type="number" id="u1-speed" class="unit"></input></td>
+                    <td class="tg-baqh"><input type="number" id="u1-cr" class="unit"></input></td>
+                    <td class="tg-baqh"><input type="text"></input></td>
+                    <td class="tg-baqh"><input type="text" id="t1-speed" class='answer' readonly></input></td>
+                    <td class="tg-baqh"><input type="number" id="t1-cr" class="opponent"></input></td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh"><input type="text" id="u2-name"></input></td>
+                    <td class="tg-baqh"><input type="number" id="u2-speed" class="unit"></input></td>
+                    <td class="tg-baqh"><input type="number" id="u2-cr" class="unit"></input></td>
+                    <td class="tg-baqh"><input type="text"></input></td>
+                    <td class="tg-baqh"><input type="text" id="t2-speed" class='answer' readonly></input></td>
+                    <td class="tg-baqh"><input type="number" id="t2-cr" class="opponent"></input></td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh"><input type="text" id="u3-name"></input></td>
+                    <td class="tg-baqh"><input type="number" id="u3-speed" class="unit"></input></td>
+                    <td class="tg-baqh"><input type="number" id="u3-cr" class="unit"></input></td>
+                    <td class="tg-0lax"><input type="text"></input></td>
+                    <td class="tg-baqh"><input type="text" id="t3-speed" class='answer' readonly></input></td>
+                    <td class="tg-0lax"><input type="number" id="t3-cr" class="opponent"></input></td>
+                </tr>
+                <tr>
+                    <td class="tg-baqh"><input type="text" id="u4-name"></input></td>
+                    <td class="tg-baqh"><input type="number" id="u4-speed" class="unit"></input></td>
+                    <td class="tg-baqh"><input type="number" id="u4-cr" class="unit"></input></td>
+                    <td class="tg-0lax"><input type="text" id="t4-name"></input></td>
+                    <td class="tg-baqh"><input type="text" id="t4-speed" class='answer' readonly></input></td>
+                    <td class="tg-0lax"><input type="number" id="t4-cr" class="opponent"></input></td>
+                </tr>
+                </tbody>
+            </table>
+            <span id='buttons'>
+                <button onclick="window.addUnit()">Add My Unit!</button>
+                <button onclick="window.removeUnit()">Remove My Unit!</button>
+                <button onclick="window.addTarget()">Add Opponent Unit!</button>
+                <button onclick="window.removeTarget()">Remove Opponent Unit!</button>
+            </span>
+        </div>
+        <div>
+            <button onclick="window.calculate()">Calculate!</button>
+        </div>
+        <div>
+            <h1>E7 Speed Calculator</h1>
+            <h3>Instructions:</h3>
+            <ol>
+                <li>Input your units data in the green boxes. Each row is one hero</li>
+                <li>Input the CR of the opponents in the red boxes</li>
+                <li>Boxes under the unit column is for note-taking purposes</li>
+                <li>Press Add Unit to add more of your units (max 4). Press Add Opponent Unit to add one of theirs (max 4)</li>
+                <li>Press Calculate! to see the calculated speed ranges in the Opponent's speed boxes</li>
+            </ol>
+            <p>Numbers are approximate using calculations explained in Discord.<br />Use units with CR closer to 100% for accurate ranges.<br />Made for the Bracer Guild.<br /></p>
+        </div>
+    </body>
+</html>
